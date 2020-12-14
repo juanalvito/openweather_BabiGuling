@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+import ForecastHour from './forecast.js';
+import SmallLabel from "./label.js";
+import Text from "./text.js"
 
 
 ReactDOM.render(
@@ -12,6 +15,9 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/">
             <App />
+          </Route>
+          <Route exact path ="/forecast">
+            <ForecastHour/>
           </Route>
         </Switch>
       

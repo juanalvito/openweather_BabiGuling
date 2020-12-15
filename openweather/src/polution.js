@@ -23,7 +23,7 @@ const api = {
   base: "http://api.openweathermap.org/data/2.5/"
 }
 
-function App() {
+function Polution() {
   useEffect (()=> {
   
 async function showPosition(position){
@@ -33,10 +33,17 @@ async function showPosition(position){
     const longitude = position.coords.longitude
     console.log(latitude,longitude)
     
-      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api.key}`)
-      res.data.main.temp -= 273
-      setWeather(res.data); 
+      const res = await axios.get(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${api.key}`)
+      const raze = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api.key}`)
+      
+      const data = {
+        pm2_5: res.data.list[0].components.pm2_5 ,
+        pm10: res.data.list[0].components.pm10 ,
+        aqi: res.data.list[0].main.aqi *= 10 , 
+    }
+      setWeather(data); 
       console.log(res)
+      console.log(raze)
   } catch (error) {
       console.log(error)
   }
@@ -142,25 +149,27 @@ async function showPosition(position){
   </React.Fragment>
 ))}
       <main>
+     
         <div className="searchbox">
           <input type="text" className="search" placeholder="Search country or city here..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={search}></input>
         </div>
-        {(typeof weather.main != "undefined") ? (
+        {weather ? (
         <div>
             <div className="location-place">
-              <div className="location">{weather.name}</div>
+              <div className="location">{}</div>
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
-            <div className="suhu-place">
-              <div className="suhu">
-                {Math.round(weather.main.temp)}°C
+            <div className="pm2">
+            <p>  Particulate Matter :{weather.pm2_5}</p>  
+            </div>
+            <div className="pm10">
+            <p>  Particulate Matter :{weather.pm10}</p>  
+              <div className="pm10">
+                
               </div>
             </div>
-            <div className="weather-place">
-              <img className="city-icon" src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}/>
-              <div className="weather">
-                {weather.weather[0].description}
-              </div>
+            <div className="aqi">
+            <p>  AQI :{weather.aqi}</p>  
             </div>
         </div>  
         ) : ('')}
@@ -169,4 +178,4 @@ async function showPosition(position){
   );
 }
 
-export default App;
+export default Polution;

@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
 import ForecastHour from './forecast.js';
-
+import Polution from './polution.js';
 
 
 ReactDOM.render(
@@ -17,6 +17,9 @@ ReactDOM.render(
           </Route>
           <Route exact path ="/forecast">
             <ForecastHour/>
+          </Route>
+          <Route exact path="/polution">
+            <Polution/>
           </Route>
         </Switch>
       

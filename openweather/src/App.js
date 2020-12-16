@@ -14,7 +14,9 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import Polutionicon from '@material-ui/icons/FilterDrama';
 import HomeIcon from '@material-ui/icons/Home';
-
+import coff from './coff.png';
+import foff from './foff.png';
+import Switch from '@material-ui/core/Switch';
 
 
 
@@ -29,7 +31,7 @@ function App() {
 async function showPosition(position){
   try {
     
-   const latitude =  position.coords.latitude 
+    const latitude =  position.coords.latitude 
     const longitude = position.coords.longitude
     console.log(latitude,longitude)
     
@@ -52,6 +54,10 @@ async function showPosition(position){
     
     getLocation()
   }, [])
+
+  
+
+  const [isFah, setisFah] = useState('false');
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
@@ -138,20 +144,49 @@ async function showPosition(position){
       </List>
     </div>
   );
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+    isFah ? getFah() : getCel()
+
+      setisFah(!isFah)
+  };
+
+  const getFah = () =>{
+    const newTemp = (weather.main.temp * 9 / 5) +32;
+    setWeather({
+      ...weather, main: {...weather.main, temp: newTemp } 
+    })
+  }
+  const getCel = () => {
+    const newTemp = (weather.main.temp - 32)  * 5 / 9;
+    setWeather({
+      ...weather, main: {...weather.main, temp: newTemp } 
+    })
+  }
+
+
   return (
     <div className="app">
       {['Menu'].map((anchor) => (
-  <React.Fragment key={anchor}>
-    <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-    <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-      {list(anchor)}
-    </Drawer>
-  </React.Fragment>
-))}
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)} className="menubutton">{anchor}</Button>
+          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
+        <Switch
+            className ="switch"
+            checked={state.Fahrenheit}
+            onChange={handleChange}
+            color="primary"
+            name="Fahrenheit"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+          />
+        <img className="celsius" src={coff}></img>
+        <img className="fahrenheit" src={foff}></img>
       <main>
-        <div className ="ftoc">
-           
-        </div>
         <div className="searchbox">
           <input type="text" className="search" placeholder="Search country or city here..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={search}></input>
         </div>
@@ -163,7 +198,7 @@ async function showPosition(position){
             </div>
             <div className="suhu-place">
               <div className="suhu">
-                {Math.round(weather.main.temp)}°C
+                {Math.round(weather.main.temp)}{isFah ? <span>&#8451;</span> : <span>&#8457;</span> } 
               </div>
             </div>
             <div className="weather-place">

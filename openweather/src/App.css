@@ -91,3 +91,26 @@ main{
   font-size : 100px;
   color : #a3d91a;
 }
+
+.celsius {
+  position:absolute;
+  width: 2%;
+  right: 10%;
+  margin-top: 0.3%;
+}
+
+.fahrenheit {
+  position:absolute;
+  width: 2%;
+  right: 4%;
+  margin-top: 0.3%;
+}
+
+.switch{
+  position: absolute;
+  right: -40%;
+}
+
+.menubutton{
+  right: 45%;
+}

@@ -149,8 +149,8 @@ async function showPosition(position){
   </React.Fragment>
 ))}
       <main>
-        <div className ="niggablack">
-          <p onClick>&#8451</p>
+        <div className ="ftoc">
+           
         </div>
         <div className="searchbox">
           <input type="text" className="search" placeholder="Search country or city here..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={search}></input>

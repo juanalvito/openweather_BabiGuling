@@ -69,8 +69,21 @@ async function showPosition(position){
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
         .then(res => res.json())
         .then(result => {
-          setQuery('');
-          setWeather(result); 
+          const {lat, lon} = result.coord
+          console.log(lat,lon)
+          let data = { name:result.name}
+          //setWeather({name: result.name})
+          fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api.key}`)
+          .then(res=>res.json())
+          .then(res=>{
+            console.log(res)
+            setWeather({...data,pm2_5: res.list[0].components.pm2_5 ,
+              pm10: res.list[0].components.pm10 ,
+              aqi: res.list[0].main.aqi *= 10 ,  })
+          })
+          
+         // setQuery('');
+          //setWeather(result); 
           console.log(result);
         });
     }

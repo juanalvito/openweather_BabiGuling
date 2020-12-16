@@ -8,6 +8,7 @@ import ForecastHour from './forecast.js';
 import Polution from './polution.js';
 
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
@@ -20,6 +21,9 @@ ReactDOM.render(
           </Route>
           <Route exact path="/polution">
             <Polution/>
+          </Route>
+          <Route exact path="/home">
+          <App/>
           </Route>
         </Switch>
       

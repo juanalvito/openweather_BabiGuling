@@ -14,6 +14,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Forecasticon from '@material-ui/icons/WbSunny';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import Polutionicon from '@material-ui/icons/FilterDrama';
+import HomeIcon from '@material-ui/icons/Home';
 
 
 
@@ -40,6 +42,7 @@ async function showPosition(position){
         pm2_5: res.data.list[0].components.pm2_5 ,
         pm10: res.data.list[0].components.pm10 ,
         aqi: res.data.list[0].main.aqi *= 10 , 
+        name : raze.data.name ,
     }
       setWeather(data); 
       console.log(res)
@@ -126,17 +129,26 @@ async function showPosition(position){
           </ListItem>
         </Link>
       </List>
-      
-      <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <Forecasticon />}</ListItemIcon>
-            <ListItemText primary={text} />
+        <Link to = "/polution">
+          <ListItem button>
+            <ListItemIcon>  <Polutionicon/></ListItemIcon>
+            <ListItemText primary = "Polution" />
           </ListItem>
-        ))}
+        </Link>
+      </List>
+      <List>
+        <Link to = "/home">
+          <ListItem button>
+            <ListItemIcon>  <HomeIcon/></ListItemIcon>
+            <ListItemText primary = "Home" />
+          </ListItem>
+        </Link>
       </List>
     </div>
+      
+     
+  
   );
   return (
     <div className="app">
@@ -154,22 +166,21 @@ async function showPosition(position){
           <input type="text" className="search" placeholder="Search country or city here..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={search}></input>
         </div>
         {weather ? (
-        <div>
-            <div className="location-place">
-              <div className="location">{}</div>
-              <div className="date">{dateBuilder(new Date())}</div>
-            </div>
-            <div className="pm2">
-            <p>  Particulate Matter :{weather.pm2_5}</p>  
-            </div>
-            <div className="pm10">
-            <p>  Particulate Matter :{weather.pm10}</p>  
-              <div className="pm10">
-                
+              <div>
+                 <div className="location-place">
+                 <div className="location">{weather.name}</div>
+                 <div className="date">{dateBuilder(new Date())}</div>
+               </div>
+             <div className="pm2">
+                  <p>  Particulate Matter 2.5 mm :{weather.pm2_5}</p>  
               </div>
+              <div className="pm10">
+                <p>  Particulate Matter 10 mm:{weather.pm10}</p>  
+              <div className="pm10">
+                  </div>
             </div>
             <div className="aqi">
-            <p>  AQI :{weather.aqi}</p>  
+            <p>  Air Quality Index :{weather.aqi}</p>  
             </div>
         </div>  
         ) : ('')}

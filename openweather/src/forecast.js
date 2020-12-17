@@ -18,6 +18,8 @@ import coff from './coff.png';
 import foff from './foff.png';
 import Switch from '@material-ui/core/Switch';
 import WeatherForecast from './WeatherForecast.js';
+import './main.css';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 
@@ -29,12 +31,13 @@ const api = {
 function ForecastHour() {
     const [isFah, setisFah] = useState('false');
     const [query, setQuery] = useState('');
-    const [weather, setWeather] = useState({});
+    const [weather, setWeather] = useState(null);
+    const [isLoading, setIsLoading] = useState(false)
   useEffect (()=> {
   
 async function showPosition(position){
   try {
-    
+    setIsLoading(true)
     const latitude =  position.coords.latitude 
     const longitude = position.coords.longitude
 
@@ -43,8 +46,9 @@ async function showPosition(position){
    // const getDataByCity = (`https://api.openweathermap.org/data/2.5/forecast?q=${region}&units=metric&appid=${api.key}`);
     const forecast = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${api.key}`);
 
-      setWeather(forecast.data); 
+      setWeather({data: forecast.data}); 
       console.log(forecast.data)
+      setIsLoading(false)
   } catch (error) {
       console.log(error)
   }
@@ -66,11 +70,15 @@ async function showPosition(position){
 
   const search = evt => {
     if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+     // setIsLoading(true)
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${query}&units=metric&appid=${api.key}`)
         .then(res => res.json())
         .then(result => {
-          setQuery('');
-          setWeather(result); 
+          if (!result) {return}
+          setWeather({data: result}); 
+         // setIsLoading(false)
+         // setQuery('');
+          //setWeather(result); 
           console.log(result);
         });
     }
@@ -145,28 +153,18 @@ async function showPosition(position){
           </ListItem>
         </Link>
       </List>
+      <List>
+        <Link to = "/Aboutus">
+          <ListItem button>
+            <ListItemIcon>  <InfoIcon/></ListItemIcon>
+            <ListItemText primary = "About Us" />
+          </ListItem>
+        </Link>
+      </List>
     </div>
   );
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-    isFah ? getFah() : getCel()
-
-      setisFah(!isFah)
-  };
-
-  const getFah = () =>{
-    const newTemp = (weather.main.temp * 9 / 5) +32;
-    setWeather({
-      ...weather, main: {...weather.main, temp: newTemp } 
-    })
-  }
-  const getCel = () => {
-    const newTemp = (weather.main.temp - 32)  * 5 / 9;
-    setWeather({
-      ...weather, main: {...weather.main, temp: newTemp } 
-    })
-  }
+ 
 
 
   return (
@@ -179,18 +177,12 @@ async function showPosition(position){
           </Drawer>
         </React.Fragment>
       ))}
-        <Switch
-            className ="switch"
-            checked={state.Fahrenheit}
-            onChange={handleChange}
-            color="primary"
-            name="Fahrenheit"
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-     
+      
       <main>
-       {weather && <WeatherForecast data ={weather}/>}
-            
+      <div className="searchbox">
+          <input type="text" className="search" placeholder="Search country or city here..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={search}></input>
+        </div>
+        {!isLoading && weather ? <WeatherForecast data ={weather}/>:<p>Loading Data . . . </p>} 
           
     
       </main>

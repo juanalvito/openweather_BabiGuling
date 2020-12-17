@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import Polutionicon from '@material-ui/icons/FilterDrama';
 import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 
@@ -153,6 +154,14 @@ async function showPosition(position){
           <ListItem button>
             <ListItemIcon>  <HomeIcon/></ListItemIcon>
             <ListItemText primary = "Home" />
+          </ListItem>
+        </Link>
+      </List>
+      <List>
+        <Link to = "/Aboutus">
+          <ListItem button>
+            <ListItemIcon>  <InfoIcon/></ListItemIcon>
+            <ListItemText primary = "About Us" />
           </ListItem>
         </Link>
       </List>

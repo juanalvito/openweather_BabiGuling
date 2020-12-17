@@ -18,7 +18,7 @@ import coff from './coff.png';
 import foff from './foff.png';
 import Switch from '@material-ui/core/Switch';
 import InfoIcon from '@material-ui/icons/Info';
-
+import Git from './GitHub.png';
 
 function Aboutus () { 
     const useStyles = makeStyles({
@@ -56,7 +56,7 @@ function Aboutus () {
         >
           <List>
             <Link to = "/forecast">
-              <ListItem button>
+              <ListItem button  style={{color: "black"}}>
                 <ListItemIcon>  <Forecasticon /></ListItemIcon>
                 <ListItemText primary = "Forecast" />
               </ListItem>
@@ -64,7 +64,7 @@ function Aboutus () {
           </List>
           <List>
             <Link to = "/polution">
-              <ListItem button>
+              <ListItem button  style={{color: "black"}}>
                 <ListItemIcon>  <Polutionicon/></ListItemIcon>
                 <ListItemText primary = "Polution" />
               </ListItem>
@@ -72,7 +72,7 @@ function Aboutus () {
           </List>
           <List>
             <Link to = "/home">
-              <ListItem button>
+              <ListItem button  style={{color: "black"}}>
                 <ListItemIcon>  <HomeIcon/></ListItemIcon>
                 <ListItemText primary = "Home" />
               </ListItem>
@@ -80,7 +80,7 @@ function Aboutus () {
           </List>
           <List>
             <Link to = "/Aboutus">
-              <ListItem button>
+              <ListItem button  style={{color: "black"}}>
                 <ListItemIcon>  <InfoIcon/></ListItemIcon>
                 <ListItemText primary = "About Us" />
               </ListItem>
@@ -105,28 +105,34 @@ function Aboutus () {
             
             
           <main>
-              <div className ="gay">
+              <div className ="About">
+                <h1 className="US">About Us</h1>
+                
             <div className = "Nama1">
-                <h1>Jason Haryanto</h1>
+                <h1><a href="https://github.com/jhrjason1"><img src={Git} className= "git" ></img></a> Jason Haryanto</h1>
                 <p>00000037352</p>
+
             </div>
             <div className = "Nama2">
-                <h1>Juan Alvito</h1>
+                <h1><a href="https://github.com/juanalvito"><img src={Git} className= "git" ></img></a> Juan Alvito</h1>
                 <p>00000037193</p>
             </div>
             <div className = "Nama3">
-                <h1>Leonardo Steven</h1>
+                <h1><a href="https://github.com/LeonardoSteven"><img src={Git} className= "git" ></img></a> Leonardo Steven</h1>
                 <p>00000037279</p>
             </div>
             <div className = "Nama4">
-                <h1>Hillary Dorothea K</h1>
+                <h1><a href="https://github.com/HillaryDorotheaKristianto"><img src={Git} className= "git" ></img></a> Hillary Dorothea K</h1>
                 <p>00000037192</p>
             </div>
-            <div className="niggandi">
+            <br></br>
+            <br></br>
+
+            <div className="Special">
                 <h1>Special Thanks To : </h1> 
             </div>
             <div className ="shifu">
-                <h1>Shifu Andi Usman Balo</h1>
+                <h1><a href="https://github.com/andibalo"><img src={Git} className= "git" ></img></a> Shifu Andi Usman Balo</h1>
                 <h2> Pogchamp </h2>
                 <p></p>
             </div>

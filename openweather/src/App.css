@@ -88,22 +88,23 @@ main{
   margin-top: -100px;
 }
 .aqi { 
-  font-size : 100px;
-  color : #a3d91a;
+  font-size : 85px;
+  color : #e78ce3;
+
 }
 
 .celsius {
-  position:absolute;
+  position: relative;;
   width: 2%;
-  right: 10%;
+  right: -34%;
   margin-top: 0.3%;
 }
 
 .fahrenheit {
-  position:absolute;
+  position: relative;;
   width: 2%;
-  right: 4%;
-  margin-top: 0.3%;
+  right: -38%;
+  top: 1%;
 }
 
 .switch{
@@ -112,11 +113,40 @@ main{
 }
 
 .menubutton{
-  right: 45%;
+  right: 43%;
 }
 
-.gay { 
-  padding-top : 200px;
-  color : white;
+.About { 
+  padding-top : 100px;
+  color : black;
   
+}
+.Box{
+  border:solid black 3px;
+  margin-top: 20px ;
+  padding:15px ;
+  width: 80% ;
+  left:10%;
+  position: relative;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.pm2,.pm10{
+font-size:20px ;
+margin-top: 10px ;
+color: black;
+}
+.US{
+padding-bottom: 30px;
+font-size: 80px;
+}
+.git{
+  width: 2% ;
+  
+}
+.git:hover{
+  transform: scale(1.5);
+}
+button{
+  color: black;
+  text-decoration: none;
 }

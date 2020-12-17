@@ -122,7 +122,7 @@ async function showPosition(position){
     >
       <List>
         <Link to = "/forecast">
-          <ListItem button>
+          <ListItem button style={{color: "black"}}>
             <ListItemIcon>  <Forecasticon /></ListItemIcon>
             <ListItemText primary = "Forecast" />
           </ListItem>
@@ -130,7 +130,7 @@ async function showPosition(position){
       </List>
       <List>
         <Link to = "/polution">
-          <ListItem button>
+          <ListItem button style={{color: "black"}}>
             <ListItemIcon>  <Polutionicon/></ListItemIcon>
             <ListItemText primary = "Polution" />
           </ListItem>
@@ -138,7 +138,7 @@ async function showPosition(position){
       </List>
       <List>
         <Link to = "/home">
-          <ListItem button>
+          <ListItem button style={{color: "black"}}>
             <ListItemIcon>  <HomeIcon/></ListItemIcon>
             <ListItemText primary = "Home" />
           </ListItem>
@@ -146,7 +146,7 @@ async function showPosition(position){
       </List>
       <List>
         <Link to = "/Aboutus">
-          <ListItem button>
+          <ListItem button style={{color: "black"}}>
             <ListItemIcon>  <InfoIcon/></ListItemIcon>
             <ListItemText primary = "About Us" />
           </ListItem>
@@ -190,7 +190,7 @@ async function showPosition(position){
             className ="switch"
             checked={state.Fahrenheit}
             onChange={handleChange}
-            color="primary"
+            color="secondary"
             name="Fahrenheit"
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />

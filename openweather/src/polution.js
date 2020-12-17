@@ -135,7 +135,7 @@ async function showPosition(position){
     >
       <List>
         <Link to = "/forecast">
-          <ListItem button>
+          <ListItem button  style={{color: "black"}}>
             <ListItemIcon>  <Forecasticon /></ListItemIcon>
             <ListItemText primary = "Forecast" />
           </ListItem>
@@ -143,7 +143,7 @@ async function showPosition(position){
       </List>
       <List>
         <Link to = "/polution">
-          <ListItem button>
+          <ListItem button  style={{color: "black"}}>
             <ListItemIcon>  <Polutionicon/></ListItemIcon>
             <ListItemText primary = "Polution" />
           </ListItem>
@@ -151,7 +151,7 @@ async function showPosition(position){
       </List>
       <List>
         <Link to = "/home">
-          <ListItem button>
+          <ListItem button  style={{color: "black"}}>
             <ListItemIcon>  <HomeIcon/></ListItemIcon>
             <ListItemText primary = "Home" />
           </ListItem>
@@ -159,7 +159,7 @@ async function showPosition(position){
       </List>
       <List>
         <Link to = "/Aboutus">
-          <ListItem button>
+          <ListItem button  style={{color: "black"}}>
             <ListItemIcon>  <InfoIcon/></ListItemIcon>
             <ListItemText primary = "About Us" />
           </ListItem>
@@ -191,6 +191,10 @@ async function showPosition(position){
                  <div className="location">{weather.name}</div>
                  <div className="date">{dateBuilder(new Date())}</div>
                </div>
+               <div className ="Box">
+               <div className="aqi">
+            <p>  Air Quality Index :{weather.aqi}</p>  
+            </div>
              <div className="pm2">
                   <p>  Particulate Matter 2.5 mm :{weather.pm2_5}</p>  
               </div>
@@ -199,8 +203,7 @@ async function showPosition(position){
               <div className="pm10">
                   </div>
             </div>
-            <div className="aqi">
-            <p>  Air Quality Index :{weather.aqi}</p>  
+           
             </div>
         </div>  
         ) : ('')}

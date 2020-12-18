@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/juanalvito/openweather_BabiGuling.git/static/css/main.931d73b5.chunk.css",
+    "main.js": "/juanalvito/openweather_BabiGuling.git/static/js/main.9d72760d.chunk.js",
+    "main.js.map": "/juanalvito/openweather_BabiGuling.git/static/js/main.9d72760d.chunk.js.map",
+    "runtime-main.js": "/juanalvito/openweather_BabiGuling.git/static/js/runtime-main.b75731bb.js",
+    "runtime-main.js.map": "/juanalvito/openweather_BabiGuling.git/static/js/runtime-main.b75731bb.js.map",
+    "static/js/2.ad587256.chunk.js": "/juanalvito/openweather_BabiGuling.git/static/js/2.ad587256.chunk.js",
+    "static/js/2.ad587256.chunk.js.map": "/juanalvito/openweather_BabiGuling.git/static/js/2.ad587256.chunk.js.map",
+    "static/js/3.d73c3f2e.chunk.js": "/juanalvito/openweather_BabiGuling.git/static/js/3.d73c3f2e.chunk.js",
+    "static/js/3.d73c3f2e.chunk.js.map": "/juanalvito/openweather_BabiGuling.git/static/js/3.d73c3f2e.chunk.js.map",
+    "index.html": "/juanalvito/openweather_BabiGuling.git/index.html",
+    "static/css/main.931d73b5.chunk.css.map": "/juanalvito/openweather_BabiGuling.git/static/css/main.931d73b5.chunk.css.map",
+    "static/js/2.ad587256.chunk.js.LICENSE.txt": "/juanalvito/openweather_BabiGuling.git/static/js/2.ad587256.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/juanalvito/openweather_BabiGuling.git/static/media/background.ef57c5c9.jpg",
+    "static/media/main.css": "/juanalvito/openweather_BabiGuling.git/static/media/background3.00a8e165.jpg",
+    "static/media/coff.0eb9fd1e.png": "/juanalvito/openweather_BabiGuling.git/static/media/coff.0eb9fd1e.png",
+    "static/media/foff.7af7d175.png": "/juanalvito/openweather_BabiGuling.git/static/media/foff.7af7d175.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b75731bb.js",
+    "static/js/2.ad587256.chunk.js",
+    "static/css/main.931d73b5.chunk.css",
+    "static/js/main.9d72760d.chunk.js"
+  ]
+}

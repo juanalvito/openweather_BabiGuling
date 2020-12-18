@@ -21,7 +21,7 @@ import InfoIcon from '@material-ui/icons/Info';
 
 const api = {
   key: "da02638594a59f25557527b8e6cd869d",
-  base: "http://api.openweathermap.org/data/2.5/"
+  base: "https://api.openweathermap.org/data/2.5/"
 }
 
 function Polution() {

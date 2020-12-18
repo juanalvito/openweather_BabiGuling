@@ -11,7 +11,7 @@ import Aboutus from './aboutus.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router> 
+    <Router basename={window.location.pathname || ''}> 
         <Switch>
           <Route exact path="/">
             <App />

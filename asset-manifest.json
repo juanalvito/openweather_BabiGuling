@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/openweather_BabiGuling/static/css/main.422f1096.chunk.css",
-    "main.js": "/openweather_BabiGuling/static/js/main.ea8765f4.chunk.js",
-    "main.js.map": "/openweather_BabiGuling/static/js/main.ea8765f4.chunk.js.map",
+    "main.js": "/openweather_BabiGuling/static/js/main.43dc528a.chunk.js",
+    "main.js.map": "/openweather_BabiGuling/static/js/main.43dc528a.chunk.js.map",
     "runtime-main.js": "/openweather_BabiGuling/static/js/runtime-main.3fd69576.js",
     "runtime-main.js.map": "/openweather_BabiGuling/static/js/runtime-main.3fd69576.js.map",
     "static/js/2.ad587256.chunk.js": "/openweather_BabiGuling/static/js/2.ad587256.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.3fd69576.js",
     "static/js/2.ad587256.chunk.js",
     "static/css/main.422f1096.chunk.css",
-    "static/js/main.ea8765f4.chunk.js"
+    "static/js/main.43dc528a.chunk.js"
   ]
 }
